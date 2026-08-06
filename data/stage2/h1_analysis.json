@@ -1,0 +1,254 @@
+[
+  {
+    "label": "A_self_math",
+    "jsonl": "/Users/minggguangchen/Desktop/2026/manuscript/recursive_self_improvement/esc_manuscript/data/stage2/A_self_math_4b.jsonl",
+    "stat": "ESC(T)",
+    "n_tasks": 84,
+    "point": 0.02529761904761918,
+    "boot_se": 0.03595451709861365,
+    "ci95": [
+      -0.045390625000000004,
+      0.09508928571428577
+    ],
+    "p_one_sided": 0.23997600239976002
+  },
+  {
+    "label": "A_self_code",
+    "jsonl": "/Users/minggguangchen/Desktop/2026/manuscript/recursive_self_improvement/esc_manuscript/data/stage2/A_self_code_4b.jsonl",
+    "stat": "ESC(T)",
+    "n_tasks": 91,
+    "point": 0.11538461538461542,
+    "boot_se": 0.04035431416290207,
+    "ci95": [
+      0.038461538461538436,
+      0.1964285714285714
+    ],
+    "p_one_sided": 0.0010998900109989002
+  },
+  {
+    "label": "A_self_math",
+    "jsonl": "/Users/minggguangchen/Desktop/2026/manuscript/recursive_self_improvement/esc_manuscript/data/stage2/A_self_math_4b.jsonl",
+    "stat": "AUC_ESC",
+    "n_tasks": 84,
+    "point": 0.022619047619047594,
+    "boot_se": 0.4391018184234748,
+    "ci95": [
+      -0.8452548363095217,
+      0.8670777529761893
+    ],
+    "p_one_sided": 0.4811518848115188
+  },
+  {
+    "label": "A_self_code",
+    "jsonl": "/Users/minggguangchen/Desktop/2026/manuscript/recursive_self_improvement/esc_manuscript/data/stage2/A_self_code_4b.jsonl",
+    "stat": "AUC_ESC",
+    "n_tasks": 91,
+    "point": 1.7572802197802204,
+    "boot_se": 0.5064419385444585,
+    "ci95": [
+      0.7949536401098899,
+      2.770642170329671
+    ],
+    "p_one_sided": 0.00029997000299970003
+  },
+  {
+    "label": "B_n1_math",
+    "jsonl": "/Users/minggguangchen/Desktop/2026/manuscript/recursive_self_improvement/esc_manuscript/data/stage2/B_n1_math_4b_self.jsonl",
+    "stat": "SCG(T)",
+    "n_tasks": 84,
+    "point": -0.024404761904761874,
+    "boot_se": 0.05764805210604531,
+    "ci95": [
+      -0.13214285714285717,
+      0.08333333333333331
+    ],
+    "p_one_sided": 0.684931506849315
+  },
+  {
+    "label": "B_n1_code",
+    "jsonl": "/Users/minggguangchen/Desktop/2026/manuscript/recursive_self_improvement/esc_manuscript/data/stage2/B_n1_code_4b_self.jsonl",
+    "stat": "SCG(T)",
+    "n_tasks": 91,
+    "point": 0.028021978021978033,
+    "boot_se": 0.0655639320756182,
+    "ci95": [
+      -0.09890109890109866,
+      0.1543956043956043
+    ],
+    "p_one_sided": 0.3341665833416658
+  },
+  {
+    "label": "A_peer_math",
+    "jsonl": "/Users/minggguangchen/Desktop/2026/manuscript/recursive_self_improvement/esc_manuscript/data/stage2/A_peer_math_4b.jsonl",
+    "stat": "ESC(T)",
+    "n_tasks": 84,
+    "point": 0.08083266104545861,
+    "boot_se": 0.04972531896885339,
+    "ci95": [
+      -0.016892551324462837,
+      0.17742810504185327
+    ],
+    "p_one_sided": 0.051094890510948905
+  },
+  {
+    "label": "A_peer_code",
+    "jsonl": "/Users/minggguangchen/Desktop/2026/manuscript/recursive_self_improvement/esc_manuscript/data/stage2/A_peer_code_4b.jsonl",
+    "stat": "ESC(T)",
+    "n_tasks": 91,
+    "point": 0.04234065934065945,
+    "boot_se": 0.05037982222430618,
+    "ci95": [
+      -0.05417880036630044,
+      0.14143667582417596
+    ],
+    "p_one_sided": 0.20057994200579943
+  },
+  {
+    "label": "A_oracle_math_fullscale",
+    "jsonl": "/Users/minggguangchen/Desktop/2026/manuscript/recursive_self_improvement/esc_manuscript/data/stage2/A_oracle_math_4b.jsonl",
+    "stat": "SEL(T)",
+    "n_tasks": 84,
+    "point": 0.0,
+    "boot_se": 0.0,
+    "ci95": [
+      0.0,
+      0.0
+    ],
+    "p_one_sided": 1.0
+  },
+  {
+    "label": "A_oracle_math_fullscale",
+    "jsonl": "/Users/minggguangchen/Desktop/2026/manuscript/recursive_self_improvement/esc_manuscript/data/stage2/A_oracle_math_4b.jsonl",
+    "stat": "ESC(T)",
+    "n_tasks": 84,
+    "point": 0.0,
+    "boot_se": 0.0,
+    "ci95": [
+      0.0,
+      0.0
+    ],
+    "p_one_sided": 1.0
+  },
+  {
+    "label": "A_oracle_code_fullscale",
+    "jsonl": "/Users/minggguangchen/Desktop/2026/manuscript/recursive_self_improvement/esc_manuscript/data/stage2/A_oracle_code_4b.jsonl",
+    "stat": "SEL(T)",
+    "n_tasks": 91,
+    "point": 0.0,
+    "boot_se": 0.0,
+    "ci95": [
+      0.0,
+      0.0
+    ],
+    "p_one_sided": 1.0
+  },
+  {
+    "label": "A_oracle_code_fullscale",
+    "jsonl": "/Users/minggguangchen/Desktop/2026/manuscript/recursive_self_improvement/esc_manuscript/data/stage2/A_oracle_code_4b.jsonl",
+    "stat": "ESC(T)",
+    "n_tasks": 91,
+    "point": 0.0,
+    "boot_se": 0.0,
+    "ci95": [
+      0.0,
+      0.0
+    ],
+    "p_one_sided": 1.0
+  },
+  {
+    "label": "A_placebo_math_fullscale",
+    "jsonl": "/Users/minggguangchen/Desktop/2026/manuscript/recursive_self_improvement/esc_manuscript/data/stage2/A_placebo_math_4b.jsonl",
+    "stat": "ESC(T)",
+    "n_tasks": 84,
+    "point": 0.23633754917558564,
+    "boot_se": 0.050356656839041385,
+    "ci95": [
+      0.13647389417756897,
+      0.3337194974786631
+    ],
+    "p_one_sided": 9.999000099990002e-05
+  },
+  {
+    "label": "A_placebo_code_fullscale",
+    "jsonl": "/Users/minggguangchen/Desktop/2026/manuscript/recursive_self_improvement/esc_manuscript/data/stage2/A_placebo_code_4b.jsonl",
+    "stat": "ESC(T)",
+    "n_tasks": 91,
+    "point": -0.061767726543725754,
+    "boot_se": 0.05064580245489851,
+    "ci95": [
+      -0.1623114833872019,
+      0.03840270985020608
+    ],
+    "p_one_sided": 0.888011198880112
+  },
+  {
+    "label": "H2_code",
+    "stat": "ESC_sp(T)",
+    "path_a": "/Users/minggguangchen/Desktop/2026/manuscript/recursive_self_improvement/esc_manuscript/data/stage2/A_self_code_4b.jsonl",
+    "path_b": "/Users/minggguangchen/Desktop/2026/manuscript/recursive_self_improvement/esc_manuscript/data/stage2/A_strongtilde_code_4b_main.jsonl",
+    "n_tasks": 91,
+    "point": 0.12901778820288745,
+    "boot_se": 0.05673774236554117,
+    "ci95": [
+      0.016130997029769795,
+      0.2411233431211343
+    ],
+    "p_one_sided": 0.011698830116988301
+  },
+  {
+    "label": "H2_math_optimistic",
+    "stat": "ESC_sp(T)",
+    "path_a": "/Users/minggguangchen/Desktop/2026/manuscript/recursive_self_improvement/esc_manuscript/data/stage2/A_self_math_4b.jsonl",
+    "path_b": "/Users/minggguangchen/Desktop/2026/manuscript/recursive_self_improvement/esc_manuscript/data/stage2/A_strongtilde_math_4b_opt.jsonl",
+    "n_tasks": 84,
+    "point": -0.08898809452287137,
+    "boot_se": 0.05390041540305087,
+    "ci95": [
+      -0.19598213972993567,
+      0.01681919814074987
+    ],
+    "p_one_sided": 0.9501049895010499
+  },
+  {
+    "label": "H2_math_conservative",
+    "stat": "ESC_sp(T)",
+    "path_a": "/Users/minggguangchen/Desktop/2026/manuscript/recursive_self_improvement/esc_manuscript/data/stage2/A_self_math_4b.jsonl",
+    "path_b": "/Users/minggguangchen/Desktop/2026/manuscript/recursive_self_improvement/esc_manuscript/data/stage2/A_strongtilde_math_4b_cons.jsonl",
+    "n_tasks": 84,
+    "point": -0.07159770939074933,
+    "boot_se": 0.0492363237276681,
+    "ci95": [
+      -0.16450958569622406,
+      0.027751567221084444
+    ],
+    "p_one_sided": 0.9259074092590741
+  },
+  {
+    "label": "ESC_adj_math",
+    "stat": "ESC_adj(T)",
+    "path_a": "/Users/minggguangchen/Desktop/2026/manuscript/recursive_self_improvement/esc_manuscript/data/stage2/A_self_math_4b.jsonl",
+    "path_b": "/Users/minggguangchen/Desktop/2026/manuscript/recursive_self_improvement/esc_manuscript/data/stage2/A_placebo_math_4b.jsonl",
+    "n_tasks": 84,
+    "point": -0.21103993012796646,
+    "boot_se": 0.057667972358210945,
+    "ci95": [
+      -0.3239650491116192,
+      -0.09827212591290538
+    ],
+    "p_one_sided": 0.9998000199980002
+  },
+  {
+    "label": "ESC_adj_code",
+    "stat": "ESC_adj(T)",
+    "path_a": "/Users/minggguangchen/Desktop/2026/manuscript/recursive_self_improvement/esc_manuscript/data/stage2/A_self_code_4b.jsonl",
+    "path_b": "/Users/minggguangchen/Desktop/2026/manuscript/recursive_self_improvement/esc_manuscript/data/stage2/A_placebo_code_4b.jsonl",
+    "n_tasks": 91,
+    "point": 0.17715234192834117,
+    "boot_se": 0.059456672100718776,
+    "ci95": [
+      0.0590505862515327,
+      0.293195099466962
+    ],
+    "p_one_sided": 0.0015998400159984002
+  }
+]

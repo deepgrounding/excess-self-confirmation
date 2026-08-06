@@ -1,0 +1,10 @@
+{
+  "model": "mlx-community/Qwen3.5-4B-4bit",
+  "n": 20,
+  "mean_s_per_gen_judge": 3.82,
+  "median": 3.77,
+  "p90": 4.66,
+  "note": "Short probes (max_tokens gen=128, judge=80). Pilot full-length was ~5.5 s/call; planning figure was 6 s/call. Use 4–6 s/call for budget until full-prompt re-bench on screened items.",
+  "log": "logs/throughput_4b.log",
+  "date": "2026-07-13"
+}

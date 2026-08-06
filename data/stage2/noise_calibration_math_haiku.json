@@ -1,0 +1,36 @@
+{
+  "domain": "math",
+  "rubric": "faithful",
+  "strong_model": "anthropic/claude-haiku-4.5",
+  "strong_backend": "openrouter",
+  "round": 0,
+  "n_calibration_items": 336,
+  "auc_self": 0.7541118421052632,
+  "auc_strong_raw": 0.7271703375286042,
+  "tau": 9.5367431640625e-07,
+  "lambda": 1.0,
+  "auc_strong_tilde": 0.7260686320080093,
+  "sel0_self": 0.22485119047619045,
+  "sel0_strong_tilde": 0.134107149423383,
+  "sel0_ratio": 0.5964269914690175,
+  "fallback_2param_used": true,
+  "noise_space": "linear",
+  "gate_pass": false,
+  "dual_bound": {
+    "optimistic": {
+      "tau": 2.9802322387695312e-08,
+      "lambda": 1.0,
+      "auc_strong_tilde": 0.7260686320080093,
+      "note": "AUC-matched; SEL(0) magnitude under-matched (see sel0_ratio above)"
+    },
+    "conservative": {
+      "tau": 0.375,
+      "lambda": 1.0,
+      "auc_strong_tilde": 0.6163653103546909,
+      "sel0_ratio": 1.0352330997758665,
+      "note": "SEL(0)-matched; AUC mismatch accepted as the cost"
+    }
+  },
+  "n_noise_draws": 200,
+  "date": "2026-07-22"
+}

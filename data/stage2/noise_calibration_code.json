@@ -1,0 +1,22 @@
+{
+  "domain": "code",
+  "rubric": "faithful",
+  "strong_model": "gemma4:12b",
+  "strong_backend": "ollama",
+  "round": 0,
+  "n_calibration_items": 364,
+  "auc_self": 0.71176322734699,
+  "auc_strong_raw": 0.8085647857232625,
+  "tau": 0.5,
+  "lambda": 1.0,
+  "auc_strong_tilde": 0.6925394306899585,
+  "sel0_self": 0.2914835164835165,
+  "sel0_strong_tilde": 0.31070225640275106,
+  "sel0_ratio": 1.0659342255476096,
+  "fallback_2param_used": false,
+  "noise_space": "linear",
+  "gate_pass": true,
+  "dual_bound": null,
+  "n_noise_draws": 200,
+  "date": "2026-07-26"
+}

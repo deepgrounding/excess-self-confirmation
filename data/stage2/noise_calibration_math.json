@@ -1,0 +1,36 @@
+{
+  "domain": "math",
+  "rubric": "faithful",
+  "strong_model": "gemma4:12b",
+  "strong_backend": "ollama",
+  "round": 0,
+  "n_calibration_items": 336,
+  "auc_self": 0.7541118421052632,
+  "auc_strong_raw": 0.6966354405034325,
+  "tau": 9.5367431640625e-07,
+  "lambda": 1.0,
+  "auc_strong_tilde": 0.6939548770022881,
+  "sel0_self": 0.22485119047619045,
+  "sel0_strong_tilde": 0.13839286680032536,
+  "sel0_ratio": 0.6154876889965545,
+  "fallback_2param_used": true,
+  "noise_space": "linear",
+  "gate_pass": false,
+  "dual_bound": {
+    "optimistic": {
+      "tau": 2.9802322387695312e-08,
+      "lambda": 1.0,
+      "auc_strong_tilde": 0.6939548770022881,
+      "note": "AUC-matched; SEL(0) magnitude under-matched (see sel0_ratio above)"
+    },
+    "conservative": {
+      "tau": 0.375,
+      "lambda": 1.0,
+      "auc_strong_tilde": 0.6615359518020592,
+      "sel0_ratio": 1.0410356181271823,
+      "note": "SEL(0)-matched; AUC mismatch accepted as the cost"
+    }
+  },
+  "n_noise_draws": 200,
+  "date": "2026-07-26"
+}

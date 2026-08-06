@@ -1,0 +1,19 @@
+{
+  "domain": "code",
+  "rubric": "faithful",
+  "strong_model": "anthropic/claude-haiku-4.5",
+  "round": 0,
+  "n_calibration_items": 364,
+  "auc_self": 0.71176322734699,
+  "auc_strong_raw": 0.8298510745255749,
+  "tau": 0.5,
+  "lambda": 1.0,
+  "auc_strong_tilde": 0.7136767940178455,
+  "sel0_self": 0.2914835164835165,
+  "sel0_strong_tilde": 0.3342680866624723,
+  "sel0_ratio": 1.146782125778887,
+  "fallback_2param_used": false,
+  "gate_pass": true,
+  "n_noise_draws": 200,
+  "date": "2026-07-22"
+}
