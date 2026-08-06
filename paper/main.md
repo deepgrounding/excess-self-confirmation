@@ -2,8 +2,8 @@
 title: "Excess Self-Confirmation Is Domain-Dependent: Self-Preference Drives It in Code, the Optimizer's Curse Alone Explains Math"
 author:
  - "Mingguang Chen — DeepGrounding (corresponding: deepgroundingai@gmail.com)"
- - "Bo Qu — Illinois Institute of Technology (IIT)"
  - "Licheng Wang — AlphaAvatar"
+ - "Bo Qu — DeepGrounding"
  - "Hassan Alnoon — Ghisha AI"
 date: "August 2026"
 link-citations: true
