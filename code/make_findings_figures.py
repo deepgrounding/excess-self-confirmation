@@ -41,7 +41,7 @@ OUT = Path(__file__).resolve().parent.parent / "draft" / "figures"
 OUT.mkdir(parents=True, exist_ok=True)
 
 BLUE, GREEN, AMBER, PURPLE = "#2a78d6", "#1baf7a", "#eda100", "#4a3aa7"
-plt.rcParams.update({"font.size": 10, "figure.dpi": 150})
+plt.rcParams.update({"font.size": 10, "figure.dpi": 150, "savefig.dpi": 300})
 
 
 def load_rounds(path: Path) -> list[dict]:
@@ -213,3 +213,58 @@ for label, scores, g, _ in judges:
         f"  {label}: wrong mean={scores[g==0].mean():.3f}  "
         f"right mean={scores[g==1].mean():.3f}  gap={scores[g==1].mean()-scores[g==0].mean():.3f}"
     )
+
+# --- Figure F4: seed-13 vs seed-42 replication forest plot ------------------
+# Reads the analysis script's own output rather than recomputing, so the
+# figure can never disagree with the numbers in the text.
+res = {}
+for row in json.loads((DATA / "h1_analysis.json").read_text()):
+    res[(row["label"], row.get("stat"))] = row
+
+# (display label, seed-13 key, seed-42 key) -- ESC_adj deliberately absent:
+# J_placebo was not on the pre-registered second-seed list (see S:9).
+ROWS = [
+    (r"$\mathrm{ESC}(T)$, code", ("A_self_code", "ESC(T)"), ("A_self_code_seed42", "ESC(T)")),
+    (r"$\mathrm{ESC}(T)$, math", ("A_self_math", "ESC(T)"), ("A_self_math_seed42", "ESC(T)")),
+    (r"$\mathrm{ESC}_{sp}(T)$, code", ("H2_code", "ESC_sp(T)"), ("H2_code_seed42", "ESC_sp(T)")),
+    (r"$\mathrm{ESC}_{sp}(T)$, math (cons)", ("H2_math_conservative", "ESC_sp(T)"), ("H2_math_conservative_seed42", "ESC_sp(T)")),
+    (r"$N{=}1$ SCG$(T)$, code", ("B_n1_code", "SCG(T)"), ("B_n1_code_seed42", "SCG(T)")),
+    (r"$N{=}1$ SCG$(T)$, math", ("B_n1_math", "SCG(T)"), ("B_n1_math_seed42", "SCG(T)")),
+]
+fig, ax = plt.subplots(figsize=(7.4, 4.0))
+offset = 0.17
+for i, (name, k13, k42) in enumerate(ROWS):
+    y = len(ROWS) - 1 - i
+    for key, dy, color, marker in [(k13, +offset, PURPLE, "o"), (k42, -offset, GREEN, "s")]:
+        r = res.get(key)
+        if r is None:
+            continue
+        lo, hi = r["ci95"]
+        ax.plot([lo, hi], [y + dy, y + dy], "-", color=color, lw=1.6, solid_capstyle="round")
+        ax.plot([r["point"]], [y + dy], marker, color=color, ms=5.5, zorder=3)
+ax.axvline(0, color="gray", lw=0.9, ls=":")
+ax.set_yticks(range(len(ROWS)))
+ax.set_yticklabels([n for n, _, _ in ROWS][::-1], fontsize=9)
+ax.set_xlabel("effect size (95% cluster-bootstrap CI)")
+ax.set_ylim(-0.6, len(ROWS) - 0.4)
+# shade the N=1 rows -- the pair that fails to replicate
+ax.axhspan(-0.6, 1.5, color="black", alpha=0.045, zorder=0)
+ax.text(
+    ax.get_xlim()[1], 0.5, " does not\n replicate", fontsize=7.5, va="center",
+    ha="left", color="black", alpha=0.65,
+)
+ax.legend(
+    handles=[
+        plt.Line2D([], [], color=PURPLE, marker="o", lw=1.6, ms=5.5, label="seed 13 (primary)"),
+        plt.Line2D([], [], color=GREEN, marker="s", lw=1.6, ms=5.5, label="seed 42 (replication)"),
+    ],
+    frameon=False, fontsize=8.5, loc="upper left",
+)
+ax.set_title(
+    "Second-seed replication on the pre-registered critical cells\n"
+    "the three statistics carrying the domain split replicate; the no-selection path does not",
+    fontsize=9.5,
+)
+fig.tight_layout()
+fig.savefig(OUT / "fig_seed_replication.png", bbox_inches="tight")
+print("wrote fig_seed_replication.png")

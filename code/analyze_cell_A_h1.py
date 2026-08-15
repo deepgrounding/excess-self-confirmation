@@ -29,7 +29,7 @@ from pathlib import Path
 import numpy as np
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from esc_core import decompose  # noqa: E402
+from esc_core import decompose, auc  # noqa: E402
 
 DATA = Path(__file__).resolve().parent.parent / "data" / "stage2"
 B = 10_000  # per §7 item 1
@@ -125,6 +125,23 @@ def incomplete_reason(path: Path, expected_max_round: int = 15) -> str | None:
                 f"(run was interrupted mid-arm; max round present overall = "
                 f"{max(max_round_per_task.values())})")
     return None
+
+
+def round0_j_and_g(path: Path) -> tuple[np.ndarray, np.ndarray]:
+    """Per-candidate (not pooled) round-0 judge scores and oracle labels,
+    for a fresh AUC(J_self) vs AUC(J_strong~) noise-match recheck (used for
+    the seed-42 replication, which reuses seed-13-calibrated (tau,lambda)
+    rather than re-running calibrate_strong_noise.py)."""
+    j, g = [], []
+    with path.open() as f:
+        for line in f:
+            if not line.strip():
+                continue
+            r = json.loads(line)
+            if r["round"] == 0:
+                j.append(r["j_score"])
+                g.append(r["G"])
+    return np.array(j), np.array(g)
 
 
 def report(label: str, path: Path, statname: str, statfn) -> dict:
@@ -274,6 +291,86 @@ def main() -> None:
         r = report_paired(label, "ESC_adj(T)", path_a, path_b, B, SEED)
         if r is not None:
             results.append(r)
+
+    print(f"\n=== Second-seed replication (seed=42), critical cells per ANALYSIS_PLAN.md:25 (B={B}) ===")
+    for domain in ["math", "code"]:
+        path = DATA / f"A_self_{domain}_4b_seed42.jsonl"
+        why = incomplete_reason(path)
+        if why is not None:
+            print(f"  (skip A_self_{domain}_seed42: {why})")
+            continue
+        T_stat = lambda d: d["ESC"][-1]
+        results.append(report(f"A_self_{domain}_seed42", path, "ESC(T)", T_stat))
+    for domain in ["math", "code"]:
+        path = DATA / f"A_self_{domain}_4b_seed42.jsonl"
+        if incomplete_reason(path) is not None:
+            continue
+        auc_stat = lambda d: auc_esc_cumulative(d["ESC"])
+        results.append(report(f"A_self_{domain}_seed42", path, "AUC_ESC", auc_stat))
+
+    print(f"\n=== Second-seed independent path: cell [B] N=1, seed=42, SCG(T) (B={B}) ===")
+    for domain in ["math", "code"]:
+        path = DATA / f"B_n1_{domain}_4b_self_seed42.jsonl"
+        why = incomplete_reason(path)
+        if why is not None:
+            print(f"  (skip B_n1_{domain}_seed42: {why})")
+            continue
+        scg_stat = lambda d: d["raw_SCG"][-1]
+        results.append(report(f"B_n1_{domain}_seed42", path, "SCG(T)", scg_stat))
+
+    print(f"\n=== Second-seed H2: ESC_sp(T), seed=42, paired cluster bootstrap (B={B}) ===")
+    h2_seed42_specs = [
+        ("H2_code_seed42", DATA / "A_self_code_4b_seed42.jsonl", DATA / "A_strongtilde_code_4b_seed42_main.jsonl"),
+        ("H2_math_optimistic_seed42", DATA / "A_self_math_4b_seed42.jsonl", DATA / "A_strongtilde_math_4b_seed42_opt.jsonl"),
+        ("H2_math_conservative_seed42", DATA / "A_self_math_4b_seed42.jsonl", DATA / "A_strongtilde_math_4b_seed42_cons.jsonl"),
+    ]
+    for label, path_a, path_b in h2_seed42_specs:
+        r = report_paired(label, "ESC_sp(T)", path_a, path_b, B, SEED)
+        if r is not None:
+            results.append(r)
+
+    print(f"\n=== Second-seed noise-match diagnostic recheck (seed=42): reuses seed-13 (tau,lambda) ===")
+    print("    (gate: |AUC(J_self) - AUC(J_strong~)| <= 0.02, same threshold as Appendix B)")
+    noise_recheck_specs = [
+        ("code_main", "A_self_code_4b_seed42.jsonl", "A_strongtilde_code_4b_seed42_main.jsonl"),
+        ("math_optimistic", "A_self_math_4b_seed42.jsonl", "A_strongtilde_math_4b_seed42_opt.jsonl"),
+        ("math_conservative", "A_self_math_4b_seed42.jsonl", "A_strongtilde_math_4b_seed42_cons.jsonl"),
+    ]
+    for label, self_f, strong_f in noise_recheck_specs:
+        p_self, p_strong = DATA / self_f, DATA / strong_f
+        if not p_self.exists() or not p_strong.exists():
+            print(f"  (skip noise_match_seed42_{label}: file missing)")
+            continue
+        j_self, g_self = round0_j_and_g(p_self)
+        j_strong, g_strong = round0_j_and_g(p_strong)
+        auc_self, auc_strong = auc(j_self, g_self), auc(j_strong, g_strong)
+        delta = auc_self - auc_strong
+        gate = "PASS" if abs(delta) <= 0.02 else "FAIL"
+        print(
+            f"  {label:20s} AUC(self)={auc_self:.4f}  AUC(strong~)={auc_strong:.4f}  "
+            f"Delta={delta:+.4f}  gate={gate}"
+        )
+        results.append({
+            "label": f"noise_match_seed42_{label}", "auc_self": auc_self,
+            "auc_strong": auc_strong, "delta": delta, "gate_pass": abs(delta) <= 0.02,
+        })
+
+    print(f"\n=== Second model family (Llama-3.2-3B-Instruct), J_self only (B={B}) ===")
+    print("    (generalization check for H1's domain split; own screened pool, not Qwen's -- see §6.1)")
+    for domain in ["math", "code"]:
+        path = DATA / f"A_self_{domain}_3b_llama.jsonl"
+        why = incomplete_reason(path)
+        if why is not None:
+            print(f"  (skip A_self_{domain}_llama3b: {why})")
+            continue
+        T_stat = lambda d: d["ESC"][-1]
+        results.append(report(f"A_self_{domain}_llama3b", path, "ESC(T)", T_stat))
+    for domain in ["math", "code"]:
+        path = DATA / f"A_self_{domain}_3b_llama.jsonl"
+        if incomplete_reason(path) is not None:
+            continue
+        auc_stat = lambda d: auc_esc_cumulative(d["ESC"])
+        results.append(report(f"A_self_{domain}_llama3b", path, "AUC_ESC", auc_stat))
 
     out = Path(__file__).resolve().parent.parent / "data" / "stage2" / "h1_analysis.json"
     out.write_text(json.dumps(results, indent=2))

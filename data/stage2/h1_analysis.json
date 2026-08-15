@@ -250,5 +250,198 @@
       0.293195099466962
     ],
     "p_one_sided": 0.0015998400159984002
+  },
+  {
+    "label": "A_self_math_seed42",
+    "jsonl": "/Users/minggguangchen/Desktop/2026/manuscript/recursive_self_improvement/esc_manuscript/data/stage2/A_self_math_4b_seed42.jsonl",
+    "stat": "ESC(T)",
+    "n_tasks": 84,
+    "point": -0.009374999999999911,
+    "boot_se": 0.03429071411160864,
+    "ci95": [
+      -0.07604166666666656,
+      0.05848214285714293
+    ],
+    "p_one_sided": 0.6111388861113889
+  },
+  {
+    "label": "A_self_code_seed42",
+    "jsonl": "/Users/minggguangchen/Desktop/2026/manuscript/recursive_self_improvement/esc_manuscript/data/stage2/A_self_code_4b_seed42.jsonl",
+    "stat": "ESC(T)",
+    "n_tasks": 91,
+    "point": 0.10206043956043942,
+    "boot_se": 0.04407442920864704,
+    "ci95": [
+      0.01675480769230764,
+      0.18873626373626362
+    ],
+    "p_one_sided": 0.0093990600939906
+  },
+  {
+    "label": "A_self_math_seed42",
+    "jsonl": "/Users/minggguangchen/Desktop/2026/manuscript/recursive_self_improvement/esc_manuscript/data/stage2/A_self_math_4b_seed42.jsonl",
+    "stat": "AUC_ESC",
+    "n_tasks": 84,
+    "point": -0.28593749999999907,
+    "boot_se": 0.4016622198768561,
+    "ci95": [
+      -1.1067001488095236,
+      0.4930152529761905
+    ],
+    "p_one_sided": 0.7684231576842315
+  },
+  {
+    "label": "A_self_code_seed42",
+    "jsonl": "/Users/minggguangchen/Desktop/2026/manuscript/recursive_self_improvement/esc_manuscript/data/stage2/A_self_code_4b_seed42.jsonl",
+    "stat": "AUC_ESC",
+    "n_tasks": 91,
+    "point": 1.343612637362638,
+    "boot_se": 0.512734172880757,
+    "ci95": [
+      0.376844093406592,
+      2.371306662087911
+    ],
+    "p_one_sided": 0.0029997000299970002
+  },
+  {
+    "label": "B_n1_math_seed42",
+    "jsonl": "/Users/minggguangchen/Desktop/2026/manuscript/recursive_self_improvement/esc_manuscript/data/stage2/B_n1_math_4b_self_seed42.jsonl",
+    "stat": "SCG(T)",
+    "n_tasks": 84,
+    "point": 0.10714285714285715,
+    "boot_se": 0.04678383600676559,
+    "ci95": [
+      0.01785714285714285,
+      0.20238095238095238
+    ],
+    "p_one_sided": 0.011498850114988501
+  },
+  {
+    "label": "B_n1_code_seed42",
+    "jsonl": "/Users/minggguangchen/Desktop/2026/manuscript/recursive_self_improvement/esc_manuscript/data/stage2/B_n1_code_4b_self_seed42.jsonl",
+    "stat": "SCG(T)",
+    "n_tasks": 91,
+    "point": 0.2175824175824177,
+    "boot_se": 0.0625496892830385,
+    "ci95": [
+      0.0956043956043956,
+      0.34065934065934067
+    ],
+    "p_one_sided": 0.00019998000199980003
+  },
+  {
+    "label": "H2_code_seed42",
+    "stat": "ESC_sp(T)",
+    "path_a": "/Users/minggguangchen/Desktop/2026/manuscript/recursive_self_improvement/esc_manuscript/data/stage2/A_self_code_4b_seed42.jsonl",
+    "path_b": "/Users/minggguangchen/Desktop/2026/manuscript/recursive_self_improvement/esc_manuscript/data/stage2/A_strongtilde_code_4b_seed42_main.jsonl",
+    "n_tasks": 91,
+    "point": 0.1164168562919935,
+    "boot_se": 0.05572289375284686,
+    "ci95": [
+      0.008240574972686569,
+      0.227887994897059
+    ],
+    "p_one_sided": 0.0174982501749825
+  },
+  {
+    "label": "H2_math_optimistic_seed42",
+    "stat": "ESC_sp(T)",
+    "path_a": "/Users/minggguangchen/Desktop/2026/manuscript/recursive_self_improvement/esc_manuscript/data/stage2/A_self_math_4b_seed42.jsonl",
+    "path_b": "/Users/minggguangchen/Desktop/2026/manuscript/recursive_self_improvement/esc_manuscript/data/stage2/A_strongtilde_math_4b_seed42_opt.jsonl",
+    "n_tasks": 84,
+    "point": -0.10877976337119016,
+    "boot_se": 0.05445921213557246,
+    "ci95": [
+      -0.21622395955214468,
+      -0.004166667894716791
+    ],
+    "p_one_sided": 0.9793020697930207
+  },
+  {
+    "label": "H2_math_conservative_seed42",
+    "stat": "ESC_sp(T)",
+    "path_a": "/Users/minggguangchen/Desktop/2026/manuscript/recursive_self_improvement/esc_manuscript/data/stage2/A_self_math_4b_seed42.jsonl",
+    "path_b": "/Users/minggguangchen/Desktop/2026/manuscript/recursive_self_improvement/esc_manuscript/data/stage2/A_strongtilde_math_4b_seed42_cons.jsonl",
+    "n_tasks": 84,
+    "point": -0.10582647762815217,
+    "boot_se": 0.051509276499096555,
+    "ci95": [
+      -0.20589155445459945,
+      -0.004405624348266846
+    ],
+    "p_one_sided": 0.9793020697930207
+  },
+  {
+    "label": "noise_match_seed42_code_main",
+    "auc_self": 0.6541588785046729,
+    "auc_strong": 0.6526168224299066,
+    "delta": 0.0015420560747663181,
+    "gate_pass": true
+  },
+  {
+    "label": "noise_match_seed42_math_optimistic",
+    "auc_self": 0.7506377551020408,
+    "auc_strong": 0.7318774422086696,
+    "delta": 0.01876031289337121,
+    "gate_pass": true
+  },
+  {
+    "label": "noise_match_seed42_math_conservative",
+    "auc_self": 0.7506377551020408,
+    "auc_strong": 0.6724672011661808,
+    "delta": 0.07817055393586003,
+    "gate_pass": false
+  },
+  {
+    "label": "A_self_math_llama3b",
+    "jsonl": "/Users/minggguangchen/Desktop/2026/manuscript/recursive_self_improvement/esc_manuscript/data/stage2/A_self_math_3b_llama.jsonl",
+    "stat": "ESC(T)",
+    "n_tasks": 100,
+    "point": 0.25638485500974645,
+    "boot_se": 0.04290648239319628,
+    "ci95": [
+      0.1717986146823479,
+      0.34108388237153364
+    ],
+    "p_one_sided": 9.999000099990002e-05
+  },
+  {
+    "label": "A_self_code_llama3b",
+    "jsonl": "/Users/minggguangchen/Desktop/2026/manuscript/recursive_self_improvement/esc_manuscript/data/stage2/A_self_code_3b_llama.jsonl",
+    "stat": "ESC(T)",
+    "n_tasks": 100,
+    "point": 0.5842475,
+    "boot_se": 0.04084620504798595,
+    "ci95": [
+      0.5034048333333332,
+      0.6615836458333334
+    ],
+    "p_one_sided": 9.999000099990002e-05
+  },
+  {
+    "label": "A_self_math_llama3b",
+    "jsonl": "/Users/minggguangchen/Desktop/2026/manuscript/recursive_self_improvement/esc_manuscript/data/stage2/A_self_math_3b_llama.jsonl",
+    "stat": "AUC_ESC",
+    "n_tasks": 100,
+    "point": 2.59769004083328,
+    "boot_se": 0.48461842473417266,
+    "ci95": [
+      1.636665195769679,
+      3.547694751579778
+    ],
+    "p_one_sided": 9.999000099990002e-05
+  },
+  {
+    "label": "A_self_code_llama3b",
+    "jsonl": "/Users/minggguangchen/Desktop/2026/manuscript/recursive_self_improvement/esc_manuscript/data/stage2/A_self_code_3b_llama.jsonl",
+    "stat": "AUC_ESC",
+    "n_tasks": 100,
+    "point": 5.416047916666667,
+    "boot_se": 0.4548297634644225,
+    "ci95": [
+      4.524943468749999,
+      6.3011011875000005
+    ],
+    "p_one_sided": 9.999000099990002e-05
   }
 ]
