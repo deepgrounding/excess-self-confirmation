@@ -1,6 +1,6 @@
 # Excess Self-Confirmation
 
-Data, code, and paper source for **"Excess Self-Confirmation Is Domain-Dependent: Self-Preference Drives It in Code, the Optimizer's Curse Alone Explains Math."**
+Data, code, and paper source for **"Excess Self-Confirmation Is Domain-Dependent: Evidence from Code and Math."**
 
 When a language model generates candidates, judges them, and revises under its own scores, reported progress can outrun true progress. Most of that gap is not self-deception — it is the optimizer's curse (argmax over a noisy judge inflates the selected score while true quality is unaffected). This repository holds the instrument, the full real-model trajectory library, and the analysis code for a decomposition that isolates the residual — "excess self-confirmation" (ESC) — from that curse, and asks whether the residual is attributable to self-preference or fully explained by generic effects any judge would show.
 

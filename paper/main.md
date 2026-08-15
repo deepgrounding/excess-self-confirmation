@@ -1,5 +1,5 @@
 ---
-title: "Excess Self-Confirmation Is Domain-Dependent: Self-Preference Drives It in Code, the Optimizer's Curse Alone Explains Math"
+title: "Excess Self-Confirmation Is Domain-Dependent: Evidence from Code and Math"
 author:
  - "Mingguang Chen — DeepGrounding (corresponding: deepgroundingai@gmail.com)"
  - "Licheng Wang — AlphaAvatar"
