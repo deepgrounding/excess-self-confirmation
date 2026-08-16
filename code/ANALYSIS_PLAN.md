@@ -42,7 +42,7 @@ Drop N=12; drop [D] faithful face; second seed only on J_self and [C]. Target â‰
 
 ## Freeze contents
 
-- `esc_manuscript/draft/main.md` (Stage 1 registered report)
+- `esc_manuscript/draft/main.md` (frozen design: hypotheses, method, metrics)
 - this `ANALYSIS_PLAN.md`
 - Appendix C prompt/rubric skeletons in `main.md`
 - `code/esc_core.py`, `sim_loop.py`, `sim_validate.py` (instrument)

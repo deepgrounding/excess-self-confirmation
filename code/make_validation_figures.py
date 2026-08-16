@@ -3,7 +3,7 @@ computation -- no placeholders, no fabricated numbers.
 Run: python3 make_validation_figures.py ; outputs into ../draft/figures/.
 
 Colors follow the series' colorblind-safe palette (shared with the source
-survey and the companion registered report): blue #2a78d6, green #1baf7a,
+survey and the companion error-structure study): blue #2a78d6, green #1baf7a,
 amber #eda100, purple #4a3aa7.
 """
 import os

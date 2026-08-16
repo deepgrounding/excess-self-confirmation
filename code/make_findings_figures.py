@@ -188,7 +188,11 @@ for i, (label, scores, g, color) in enumerate(judges):
 ax.set_xticks(positions)
 ax.set_xticklabels([j[0] for j in judges], fontsize=8.5, rotation=12, ha="right")
 ax.set_ylabel("round-0 judge score")
-ax.set_ylim(-0.05, 1.05)
+# Headroom above the boxes: every wrong-answer box spans ~0-1 and every
+# correct-answer box sits at 1.0, so there is no empty corner inside the
+# data range -- the legend has to live in space made for it, not found.
+ax.set_ylim(-0.05, 1.28)
+ax.set_yticks([0.0, 0.2, 0.4, 0.6, 0.8, 1.0])
 from matplotlib.patches import Patch
 
 ax.legend(
@@ -198,7 +202,8 @@ ax.legend(
     ],
     frameon=False,
     fontsize=8,
-    loc="lower right",
+    loc="upper center",
+    ncol=2,
 )
 ax.set_title(
     "Math calibration pool (n=336): all three external judges score WRONG answers\n"

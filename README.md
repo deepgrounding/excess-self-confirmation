@@ -4,7 +4,7 @@ Data, code, and paper source for **"Excess Self-Confirmation Is Domain-Dependent
 
 When a language model generates candidates, judges them, and revises under its own scores, reported progress can outrun true progress. Most of that gap is not self-deception — it is the optimizer's curse (argmax over a noisy judge inflates the selected score while true quality is unaffected). This repository holds the instrument, the full real-model trajectory library, and the analysis code for a decomposition that isolates the residual — "excess self-confirmation" (ESC) — from that curse, and asks whether the residual is attributable to self-preference or fully explained by generic effects any judge would show.
 
-**Headline result:** a domain split, not a general answer. In code, self-judgment shows excess self-confirmation on four independent statistics. In math, none of the same five statistics confirms it, and two are significantly the *wrong* sign. An independent seed reproduces the three statistics that carry this split (and sharpens math's); the one statistic that does *not* replicate is the no-selection path, which measures pure revision-conditioning drift. Full results, method, and a complete account of pre-registration deviations are in the paper (`paper/main.md`, `paper/draft_v1.pdf`).
+**Headline result:** a domain split, not a general answer. In code, self-judgment shows excess self-confirmation on four complementary statistics. In math, none of the same five statistics confirms it, and two are significantly the *wrong* sign. An independent seed reproduces the three statistics that carry this split (and sharpens math's); the one statistic that does *not* replicate is the no-selection path, which measures pure revision-conditioning drift. Full results, method, and a complete account of pre-registration deviations are in the paper (`paper/main.md`, `paper/draft_v1.pdf`).
 
 ## Layout
 
@@ -37,7 +37,7 @@ data/stage2/
   A_strongtilde_math_4b_deepseek_opt.jsonl  Third-judge cross-check arm
   A_oracle_{math,code}_4b.jsonl             Cell [A] J_oracle, full scale
   A_placebo_{math,code}_4b.jsonl            Cell [A] J_placebo, full scale
-  B_n1_{math,code}_4b_self.jsonl            Cell [B] N=1 independent path
+  B_n1_{math,code}_4b_self.jsonl            Cell [B] N=1 no-selection path
   A_pilot_{oracle,placebo}_{math,code}.jsonl, gate_smoke_*           Pilot-scale instrument-gate data (§7.1)
   calib_pool_{math,code}_4b_self.jsonl      Round-0 calibration pools (Appendix B input)
   noise_calibration_*.json(.strong_cache.json)  Frozen (tau, lambda) per judge, and cached round-0 judge scores
