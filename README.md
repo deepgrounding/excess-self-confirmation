@@ -72,7 +72,9 @@ Re-running the real-model harness itself (`run_stage2_esc.py`) requires MLX on A
 
 ## Pre-registration
 
-Design, hypotheses, metrics, synthetic validation, and the statistical analysis plan were frozen under git tag `prereg-opt2-v2` before any real-model data collection began; the noise-matching calibration was frozen under a follow-up amendment tag `prereg-opt2-v2-noise`. The paper's §8 ("Preregistration and Deviations") discloses every post-freeze amendment in full, in the order it occurred.
+Design, hypotheses, metrics, synthetic validation, and the statistical analysis plan were frozen under git tag `prereg-opt2-v2` (commit `95b0fb4`, 2026-07-12) before any real-model data collection began. The noise-matching calibration, which cannot exist before round-0 data is collected, was frozen at commit `f7faafb` (2026-07-25) under tag `prereg-opt2-v2-noise` -- five days before the first `J_strong~` arm it governs was run (`464f44e`, 2026-07-30).
+
+Both freeze points live in the authors' development repository, which also holds unrelated manuscripts; **this repository is a snapshot of that work, not its commit history**, so the tags are not visible here. The dated commits are available to reviewers and editors on request. The paper's Section 8 ("Preregistration and Deviations") discloses every post-freeze amendment in full, in the order it occurred.
 
 ## License
 
