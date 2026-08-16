@@ -13,7 +13,7 @@ paper/
   main.md            Full manuscript source (Markdown + pandoc-style citations)
   references.bib      Bibliography
   draft_v1.pdf         Compiled PDF
-  figures/             All 7 figures referenced in the paper
+  figures/             The 7 figures referenced in the paper
 code/
   esc_core.py                  Core SEL/ESC decomposition, analytic baseline, noise calibration, AUC/permutation stats
   sim_loop.py, sim_validate.py, make_validation_figures.py
